@@ -3,6 +3,10 @@
 <% if product = Product.find_by(id: product_id) %>
   <% item_total = product.price * quantity %>
   <% @cart_total += item_total %>
+  <%if @cart_total == 0 %>
+    <p> Your cart is empty! </p>
+    <% Return %>
+    <% end %>
 
   <tr>
     <td>

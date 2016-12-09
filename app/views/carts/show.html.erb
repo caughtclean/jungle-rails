@@ -1,8 +1,14 @@
 <section class="cart-show">
 
-  <header class="page-header">
+
+  <%if cart.size == 0 %>
+    <h1 align="center"> Sorry, your cart is empty! </h1>
+    <h2 align="center"> <%= link_to 'Home', :root %> </h2>
+    <% elsif cart.size != 0 %>
+
+    <header class="page-header">
     <h1>My Cart</h1>
-  </header>
+    </header>
 
   <div class="panel panel-default items">
     <table class="table table-bordered">
@@ -26,7 +32,6 @@
             TOTAL:
           </th>
           <th>
-            <%= @cart_total %>
           </th>
         </tr>
       </tfoot>
@@ -49,5 +54,8 @@
       <% end %>
     </div>
   </div>
+  <% end %>
 
 </section>
+
+
