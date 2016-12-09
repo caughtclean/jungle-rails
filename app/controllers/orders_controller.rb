@@ -52,8 +52,10 @@ class OrdersController < ApplicationController
       end
     end
     order.save!
+    order_confirmation
     order
   end
+
 
   # returns total in cents not dollars (stripe uses cents as well)
   def cart_total
@@ -64,6 +66,13 @@ class OrdersController < ApplicationController
       end
     end
     total
+  end
+
+  def order_confirmation
+    #respond_to do |format|
+        UserMailer.order_confirmation_email(@order).deliver_now
+        #format.html {redirect_to "/"}
+     # end
   end
 
 end
