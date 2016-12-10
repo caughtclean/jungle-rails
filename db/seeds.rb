@@ -21,6 +21,9 @@ end
 
 # Let's do this ...
 
+
+
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
@@ -134,3 +137,19 @@ cat3.products.create!({
 
 
 puts "DONE!"
+
+## REVIEWS
+puts "Finding or Creating Reviews"
+User.create!(first_name: "Nathan", last_name: "Eyerley", email: "eyerleyn@gmail.com", password_digest: "$2a$10$KdTBwjNCeFzbt.W1fMXB.OaIuuCXxmfDLqlBdfjSbqsIgaxV5MRc.")
+User.create!(first_name: "Ledasha", last_name: "Jones", email: "eyerleyn@gmail.com", password_digest: "$2a$10$KdTBwjNCeFzbt.W1fMXB.OaIuuCXxmfDLqlBdfjSbqsIgaxV5MRc.")
+User.create!(first_name: "Quincy", last_name: "Lee", email: "eyerleyn@gmail.com", password_digest: "$2a$10$KdTBwjNCeFzbt.W1fMXB.OaIuuCXxmfDLqlBdfjSbqsIgaxV5MRc.")
+User.create!(first_name: "Bobby", last_name: "Hipstery", email: "eyerleyn@gmail.com", password_digest: "$2a$10$KdTBwjNCeFzbt.W1fMXB.OaIuuCXxmfDLqlBdfjSbqsIgaxV5MRc.")
+User.create!(first_name: "North", last_name: "West", email: "eyerleyn@gmail.com", password_digest: "$2a$10$KdTBwjNCeFzbt.W1fMXB.OaIuuCXxmfDLqlBdfjSbqsIgaxV5MRc.")
+Review.create!(product_id: 2, user_id: 5, description: "Totally sick", rating: 5)
+Review.create!(product_id: 7, user_id: 1, description: "So last year....", rating: 3)
+Review.create!(product_id: 2, user_id: 4, description: "OMG I cant even!", rating: 5)
+Review.create!(product_id: 2, user_id: 3, description: "How many Zebras died to make these?!", rating: 0)
+Review.create!(product_id: 2, user_id: 2, description: "So post modern.", rating: 4)
+Review.create!(product_id: 2, user_id: 1, description: "Awful!", rating: 2)
+Review.create!(product_id: 3, user_id: 1, description: "Awful!", rating: 2)
+Review.create!(product_id: 3, user_id: 1, description: "Awful!", rating: 2)
