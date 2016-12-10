@@ -1,4 +1,7 @@
 <section class="products-show">
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: name %>
+  <% end %>
 
   <header class="page-header">
     <h1><%= link_to @product.category.name, @product.category %> &raquo; <%= @product.name %></h1>
@@ -25,15 +28,17 @@
         </dl>
       </div>
     </div>
+    <% if current_user %>
   <%= form_for [@product, @review] do |f| %>
   <%= f.text_field :description %>
   <% ratings = [1,2,3,4,5] %>
   <%= f.select  :rating, options_for_select(ratings) %>
-  <%= f.submit "New" %>
+  <%= f.submit "Submit" %>
+  <% end %>
   <% end %>
     <div class="row">
       <dl class="dl-horizontal">
-      <% @product.reviews.each do |r| %>
+      <% @product.reviews.order(:created_at).reverse.each do |r| %>
       <div class="review">
       <dd>
       <%= r.user.first_name %>
@@ -43,8 +48,10 @@
       <dd>
       <%= r.rating %>
       <dd>
+      <%= link_to fa_icon('trash'), [@product, r], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
       </div>
       <% end %>
+
 
     </div>
 
