@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :require_login
+  # before_action :require_login
 
   def new
     @review = Review.new
@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
-    redirect_to "/products/#{params[:product_id]}", flash: {review_success: "That review was dumb anyway!"}
+    redirect_to "/products/#{params[:product_id]}", flash: {review_success: "That review was so last year anyway!"}
   end
 
   private

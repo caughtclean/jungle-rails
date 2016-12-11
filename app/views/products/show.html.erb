@@ -28,28 +28,97 @@
         </dl>
       </div>
     </div>
-    <% if current_user %>
+    <div class="row">
+      <dl class="dl-horizontal">
+      <h3>User Reviews</h3>
+
+ <% if current_user %>
+ <h2>Leave a Review</h2>
   <%= form_for [@product, @review] do |f| %>
   <%= f.text_field :description %>
   <% ratings = [1,2,3,4,5] %>
-  <%= f.select  :rating, options_for_select(ratings) %>
+  <%= f.select  :rating, options_for_select([['1 Star', 1], ['2 Stars', 2], ['3 Stars', 3], ['4 Stars', 4], ['5 Stars', 5]]) %>
   <%= f.submit "Submit" %>
   <% end %>
   <% end %>
-    <div class="row">
-      <dl class="dl-horizontal">
+  <br>
+  <br>
+
+
+
       <% @product.reviews.order(:created_at).reverse.each do |r| %>
-      <div class="review">
-      <dd>
-      <%= r.user.first_name %>
+      <div class="container">
+<div class="row">
+<div class="col-sm-12">
+</div>
+</div>
+<div class="row">
+<div class="col-sm-1">
+</div>
+</div>
+
+<div class="col-sm-5">
+<div class="panel panel-default">
+<div class="panel-heading">
+<strong><%= r.user.first_name %>
       <%= r.user.last_name %>
-      <dd>
-      <%= r.description %>
-      <dd>
-      <%= r.rating %>
-      <dd>
+      </strong> <span class="text-muted">commented 5 days ago</span>
+     <span class="rating">
+      <% if r.rating == 1 %>
+      <i class="fa fa-star-o" aria-hidden="true"></i>
+      <i class="fa fa-star-o" aria-hidden="true"></i>
+      <i class="fa fa-star-o" aria-hidden="true"></i>
+      <i class="fa fa-star-o" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <% end %>
+      </span>
+      <% if r.rating == 2 %>
+      <i class="fa fa-star-o" aria-hidden="true"></i>
+      <i class="fa fa-star-o" aria-hidden="true"></i>
+      <i class="fa fa-star-o" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <% end %>
+      </span><% if r.rating == 3 %>
+      <i class="fa fa-star-o" aria-hidden="true"></i>
+      <i class="fa fa-star-o" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <% end %>
+      </span>
+      <% if r.rating == 4 %>
+      <i class="fa fa-star-o" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+
+      <% end %>
+      </span>
+      <% if r.rating == 5 %>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <% end %>
+      </span>
+</div>
+<div class="panel-body">
+<%= r.description %>
+<% if current_user == r.user %>
       <%= link_to fa_icon('trash'), [@product, r], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
-      </div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+
+        <% end %>
       <% end %>
 
 
@@ -57,4 +126,7 @@
 
   </article>
 
+
 </section>
+
+
