@@ -31,7 +31,12 @@
     <div class="row">
       <dl class="dl-horizontal">
       <h3>User Reviews</h3>
+<br>
 
+<h4>Average user rating</h4>
+ <h2 class="bold padding-bottom-7"> <%= @product.reviews.average(:rating) %><small>/ 5</small></h2>
+
+<br>
  <% if current_user %>
  <h2>Leave a Review</h2>
   <%= form_for [@product, @review] do |f| %>
@@ -119,13 +124,15 @@
 
 
         <% end %>
+
       <% end %>
+
 
 
     </div>
 
-  </article>
 
+  </article>
 
 </section>
 

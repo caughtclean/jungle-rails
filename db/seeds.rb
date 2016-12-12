@@ -148,7 +148,7 @@ User.create!(first_name: "North", last_name: "West", email: "eyerleyn@gmail.com"
 Review.create!(product_id: 2, user_id: 5, description: "Totally sick", rating: 5)
 Review.create!(product_id: 7, user_id: 1, description: "So last year....", rating: 3)
 Review.create!(product_id: 2, user_id: 4, description: "OMG I cant even!", rating: 5)
-Review.create!(product_id: 2, user_id: 3, description: "How many Zebras died to make these?!", rating: 0)
+Review.create!(product_id: 2, user_id: 3, description: "How many Zebras died to make these?!", rating: 1)
 Review.create!(product_id: 2, user_id: 2, description: "So post modern.", rating: 4)
 Review.create!(product_id: 2, user_id: 1, description: "Awful!", rating: 2)
 Review.create!(product_id: 3, user_id: 1, description: "Awful!", rating: 2)
