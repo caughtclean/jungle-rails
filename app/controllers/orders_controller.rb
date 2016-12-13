@@ -9,7 +9,6 @@ class OrdersController < ApplicationController
     order  = create_order(charge)
 
     if order.valid?
-      empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
     else
       redirect_to cart_path, error: order.errors.full_messages.first
@@ -53,7 +52,7 @@ class OrdersController < ApplicationController
       end
     end
     order.save!
-    order_confirmation
+    order_confirmation(order)
     order
   end
 
@@ -69,9 +68,9 @@ class OrdersController < ApplicationController
     total
   end
 
-  def order_confirmation
+  def order_confirmation(order)
     #respond_to do |format|
-        UserMailer.order_confirmation_email(@order).deliver_now
+        UserMailer.order_confirmation_email(order).deliver_now
         #format.html {redirect_to "/"}
      # end
   end

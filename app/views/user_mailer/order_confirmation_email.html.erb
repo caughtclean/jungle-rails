@@ -8,7 +8,11 @@
     <h1>Hello,</h1>
     <p>
       Your order was successfully placed to Jungle. Here are your order details:
-      <%= @order %>
+      <%= Order.last.line_items.last.product.name%>
+      $<%= Order.last.line_items.last.product.price%>
+      <%= Order.last.line_items.first.product.name%>
+      $<%= Order.last.line_items.first.product.price%>
+      Total: $<%=Order.last.total%>
     <br>
     </p>
     <p>
