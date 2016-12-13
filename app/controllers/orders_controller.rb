@@ -71,7 +71,6 @@ class OrdersController < ApplicationController
   def order_confirmation(order)
     #respond_to do |format|
         UserMailer.order_confirmation_email(order).deliver_now
-        #format.html {redirect_to "/"}
      # end
   end
 
