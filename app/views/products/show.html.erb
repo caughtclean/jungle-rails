@@ -31,12 +31,10 @@
     <div class="row">
       <dl class="dl-horizontal">
 </section>
-<br>
 
 <h4>Average user rating</h4>
  <h2 class="bold padding-bottom-7"> <%= @product.reviews.average(:rating).round(1) %><small>/ 5</small></h2>
 
-<br>
  <% if current_user %>
  <h2>Leave a Review</h2>
   <%= form_for [@product, @review] do |f| %>
@@ -46,8 +44,6 @@
   <%= f.submit "Submit" %>
   <% end %>
   <% end %>
-  <br>
-  <br>
 
 <h3>User Reviews</h3>
 
@@ -112,14 +108,10 @@
           <%= link_to fa_icon('trash'), [@product, r], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
         <% end %>
   </div>
-
-
       <% end %>
     </div>
   </div>
 </div>
-
-
   </article>
 
 

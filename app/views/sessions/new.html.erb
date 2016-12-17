@@ -1,8 +1,8 @@
 <h1 class='log-in'> Login</h1>
 
 <%= form_tag '/login' do %>
-  Email: <%= text_field_tag :email %>
-  Password: <%= password_field_tag :password %>
+  Email: <%= text_field_tag :email, nil, class: "form-control" %>
+  Password: <%= password_field_tag :password, nil, class: "form-control" %>
   <%= submit_tag "Submit" %>
 
   <% end %>

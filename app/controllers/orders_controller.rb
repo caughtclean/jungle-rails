@@ -55,8 +55,6 @@ class OrdersController < ApplicationController
     order_confirmation(order)
     order
   end
-
-
   # returns total in cents not dollars (stripe uses cents as well)
   def cart_total
     total = 0

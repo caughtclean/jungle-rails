@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
-    @review.destroy
+    @review.destroy if review.user == current_user
     redirect_to "/products/#{params[:product_id]}", flash: {review_success: "That review was so last year anyway!"}
   end
 
